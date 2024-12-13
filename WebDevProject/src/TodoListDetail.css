@@ -1,0 +1,46 @@
+/* styles/TodoListDetail.css */
+.todolist-detail-container {
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .todolist-detail-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .todolist-detail-container input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .todolist-detail-container button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .todolist-detail-container button:hover {
+    background-color: #e0a800;
+  }
+  
+  .todolist-detail-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todolist-detail-container li {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  

@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import TopNavigation from './TopNavigation.jsx';
-import MainPage from './MainPage.jsx';
+import Login from './Login.jsx';
+import TodoLists from './TodoLists.jsx';
+import TodoListDetail from './TodoListsDetail.jsx';
 
 function App() {
   return (
@@ -9,9 +11,9 @@ function App() {
       <div id="root">
         <TopNavigation />
         <Routes>
-          <Route path="/" element={<MainPage page="Home" />} />
-          <Route path="/about" element={<MainPage page="About" />} />
-          <Route path="/contact" element={<MainPage page="Contact" />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/todolists" element={<TodoLists />} />
+          <Route path="/todolist/:id" element={<TodoListDetail />} />
         </Routes>
       </div>
     </Router>
