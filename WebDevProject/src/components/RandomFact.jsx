@@ -9,7 +9,6 @@ const RandomFact = () => {
     // Function to fetch the fact from the API
     const fetchFact = async () => {
       try {
-        // const response = await fetch('/api/v2/facts/today');
         const response = await fetch('https://uselessfacts.jsph.pl/api/v2/facts/today');
     
         if (!response.ok) {
