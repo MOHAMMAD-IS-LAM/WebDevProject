@@ -24,7 +24,7 @@ const RandomFact = () => {
       }
     };
 
-    fetchFact();
+    fetchFact()
   }, []);
 
   if (loading) {
