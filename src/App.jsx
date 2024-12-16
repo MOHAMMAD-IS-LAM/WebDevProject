@@ -8,13 +8,13 @@ function App() {
   return (
     <div className="container">
       <div className="heading">
-        <h1>TO-DO-APP</h1>
+        <h1>To-Do App</h1>
       </div>
 
       <div className="form">
         <input type="text"></input>
         <button>
-          <span>ADD</span>
+          <span>Add</span>
         </button>
       </div>
 
