@@ -1,39 +1,44 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './TodoListsDetail.css';
 
-function TodoListDetail() {
+function TodoListDetail({ lists, updateLists }) {
   const { id } = useParams();
-  const location = useLocation();
   const [tasks, setTasks] = useState([]);
   const [newTaskName, setNewTaskName] = useState('');
   const [listName, setListName] = useState('');
 
-  // Load tasks and list name on component mount
   useEffect(() => {
-    const storedLists = JSON.parse(localStorage.getItem('todolists')) || [];
-    const currentList = storedLists.find((list) => list.id === parseInt(id));
-
+    const currentList = lists.find((list) => list.id === parseInt(id));
     if (currentList) {
       setListName(currentList.name);
       setTasks(currentList.tasks || []);
     }
-  }, [id]);
+  }, [id, lists]);
 
-  // Update tasks in localStorage when tasks change
-  useEffect(() => {
-    const storedLists = JSON.parse(localStorage.getItem('todolists')) || [];
-    const updatedLists = storedLists.map((list) =>
-      list.id === parseInt(id) ? { ...list, tasks } : list
-    );
-    localStorage.setItem('todolists', JSON.stringify(updatedLists));
-  }, [tasks, id]);
-
+  // Handle adding a new task
   const handleAddTask = () => {
     if (newTaskName.trim()) {
-      setTasks([...tasks, { id: Date.now(), name: newTaskName }]);
+      const updatedTasks = [...tasks, { id: Date.now(), name: newTaskName }];
+      setTasks(updatedTasks);
+
+      const updatedLists = lists.map((list) =>
+        list.id === parseInt(id) ? { ...list, tasks: updatedTasks } : list
+      );
+      updateLists(updatedLists);
       setNewTaskName('');
     }
+  };
+
+  // Handle deletion of a task
+  const handleDeleteTask = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+
+    const updatedLists = lists.map((list) =>
+      list.id === parseInt(id) ? { ...list, tasks: updatedTasks } : list
+    );
+    updateLists(updatedLists);
   };
 
   return (
@@ -52,7 +57,15 @@ function TodoListDetail() {
 
         <ul>
           {tasks.map((task) => (
-            <li key={task.id}>{task.name}</li>
+            <li key={task.id} className="todolist-task-item">
+              {task.name}
+              <button
+                onClick={() => handleDeleteTask(task.id)}
+                className="delete-button"
+              >
+                Delete
+              </button>
+            </li>
           ))}
         </ul>
 

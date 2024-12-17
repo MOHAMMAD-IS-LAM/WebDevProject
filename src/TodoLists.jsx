@@ -3,34 +3,26 @@ import { Link } from 'react-router-dom';
 import RandomFact from './components/RandomFact.jsx';
 import './TodoLists.css';
 
-function TodoLists() {
-  const [lists, setLists] = useState([]);
+function TodoLists({ lists, updateLists }) {
   const [newListName, setNewListName] = useState('');
 
-  // Load lists from localStorage when the component mounts
-  useEffect(() => {
-    const storedLists = localStorage.getItem('todolists');
-    if (storedLists) {
-      setLists(JSON.parse(storedLists));
-    }
-  }, []);
-
-  // Update localStorage whenever the lists change
-  useEffect(() => {
-    localStorage.setItem('todolists', JSON.stringify(lists));
-  }, [lists]);
+  // Handle deletion of a Todo List
+  const handleDeleteList = (id) => {
+    const updatedLists = lists.filter((list) => list.id !== id);
+    updateLists(updatedLists); // Update the state and localStorage
+  };
 
   const handleAddList = () => {
     if (newListName.trim()) {
       const newList = { id: Date.now(), name: newListName, tasks: [] };
-      setLists([...lists, newList]);
+      const updatedLists = [...lists, newList];
+      updateLists(updatedLists);
       setNewListName('');
     }
   };
 
   return (
     <div className="todolists-page">
-      {/* Main Todo Lists Section */}
       <div className="todolists-container">
         <h1 className="todolists-title">Todo Lists</h1>
         <div className="todolists-input-container">
@@ -56,12 +48,15 @@ function TodoLists() {
               >
                 {list.name}
               </Link>
+              {/* Delete button for Todo List */}
+              <button onClick={() => handleDeleteList(list.id)} className="delete-button">
+                Delete
+              </button>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Random Fact Section */}
       <div className="randomfact-container">
         <RandomFact />
       </div>
