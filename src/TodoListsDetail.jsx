@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import './TodoListsDetail.css';
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import "./TodoListsDetail.css";
 
 function TodoListDetail({ lists, updateLists }) {
   const { id } = useParams();
   const [tasks, setTasks] = useState([]);
-  const [newTaskName, setNewTaskName] = useState('');
-  const [listName, setListName] = useState('');
+  const [newTaskName, setNewTaskName] = useState("");
+  const [listName, setListName] = useState("");
 
   useEffect(() => {
     const currentList = lists.find((list) => list.id === parseInt(id));
@@ -26,7 +26,7 @@ function TodoListDetail({ lists, updateLists }) {
         list.id === parseInt(id) ? { ...list, tasks: updatedTasks } : list
       );
       updateLists(updatedLists);
-      setNewTaskName('');
+      setNewTaskName("");
     }
   };
 
@@ -44,7 +44,7 @@ function TodoListDetail({ lists, updateLists }) {
   return (
     <div className="todolist-detail-container">
       <div className="todolist-detail-card">
-        <h1>Tasks for "{listName || 'Untitled List'}"</h1>
+        <h1>Tasks for "{listName || "Untitled List"}"</h1>
         <div className="task-input-container">
           <input
             type="text"
@@ -70,7 +70,7 @@ function TodoListDetail({ lists, updateLists }) {
         </ul>
 
         <Link to="/todolists" className="back-link">
-          Back to Todo Lists
+          Back to To-Do Lists
         </Link>
       </div>
     </div>

@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import RandomFact from './components/RandomFact.jsx';
-import './TodoLists.css';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import RandomFact from "./components/RandomFact.jsx";
+import "./TodoLists.css";
 
 function TodoLists({ lists, updateLists }) {
-  const [newListName, setNewListName] = useState('');
+  const [newListName, setNewListName] = useState("");
 
   // Handle deletion of a Todo List
   const handleDeleteList = (id) => {
@@ -17,14 +17,14 @@ function TodoLists({ lists, updateLists }) {
       const newList = { id: Date.now(), name: newListName, tasks: [] };
       const updatedLists = [...lists, newList];
       updateLists(updatedLists);
-      setNewListName('');
+      setNewListName("");
     }
   };
 
   return (
     <div className="todolists-page">
       <div className="todolists-container">
-        <h1 className="todolists-title">Todo Lists</h1>
+        <h1 className="todolists-title">To-Do List</h1>
         <div className="todolists-input-container">
           <input
             type="text"
@@ -49,7 +49,10 @@ function TodoLists({ lists, updateLists }) {
                 {list.name}
               </Link>
               {/* Delete button for Todo List */}
-              <button onClick={() => handleDeleteList(list.id)} className="delete-button">
+              <button
+                onClick={() => handleDeleteList(list.id)}
+                className="delete-button"
+              >
                 Delete
               </button>
             </li>

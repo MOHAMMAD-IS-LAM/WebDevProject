@@ -16,14 +16,15 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1>What is your name?</h1>
+        <h1>Welcome Back</h1>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Enter your name"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <button onClick={handleLogin}>Create tasks</button>
+        <button onClick={handleLogin}>Enter</button>
+        
       </div>
     </div>
   );

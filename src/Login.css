@@ -10,7 +10,7 @@
 }
 
 .login-box {
-  background-color: #ffffff;
+  background-color: red;
   padding: 2rem 3rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@
 
 .login-box h1 {
   font-size: 2rem;
-  color: #333;
+  color: yellow;
   margin-bottom: 1.5rem;
   font-weight: 600;
 }
@@ -67,12 +67,12 @@
 
 .login-box p {
   margin-top: 1rem;
-  color: #555;
+  color: rgb(37, 32, 32);
   font-size: 0.9rem;
 }
 
 .login-box p a {
-  color: #007bff;
+  color: #14c6f8;
   text-decoration: none;
   transition: color 0.3s;
 }

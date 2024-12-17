@@ -19,7 +19,7 @@
   justify-content: center;
   width: 100%;
   max-width: 600px;
-  background-color: #ffffff;
+  background-color: #ef4040;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 2rem;
@@ -74,6 +74,9 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todolists-link {
@@ -94,24 +97,25 @@
 .randomfact-container {
   width: 100%;
   max-width: 600px;
-  background-color: #fffbeb;
+  background-color: rgb(213, 83, 213);
   border: 1px solid #ffeeba;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #856404;
+  color: blue;
   font-size: 1.1rem;
 }
 
 .randomfact-container h1 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #856404;
+  color: blue;
 }
 
 .randomfact-container p {
   margin: 0;
+  margin-bottom: 10px;
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -124,6 +128,9 @@
   padding: 0.3rem 0.6rem;
   cursor: pointer;
   margin-left: 1rem;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 4px;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
@@ -131,3 +138,4 @@
 .delete-button:hover {
   background-color: #c82333;
 }
+
